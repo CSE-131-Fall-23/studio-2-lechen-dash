@@ -7,7 +7,6 @@ public class Ruin {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);
-		int index = 0;
 		System.out.println("start Amount: ");
 		int startAmount = in.nextInt();
 		System.out.println("win chance (1-0): ");
@@ -15,21 +14,28 @@ public class Ruin {
 		System.out.println("win limit: ");
 		int winLimit = in.nextInt();
 		String result;
+		System.out.println("Total Simulations: ");
+		int totalSimulations = in.nextInt();
+		int win = 0;
+		int lose = 0;
 		
-		while (startAmount > 0 && startAmount < winLimit) {
-			double random = Math.random();
-			if (random <= winChance) {
-				startAmount++;
-				result = "WIN";
-			}
-			else {
-				startAmount--;
-				result = "LOSE";
-			}
-			 
-			index++;
-			System.out.println("Simulation " + index + ": " + startAmount + " " + result);
 		
+		for (int i = 1; i <= totalSimulations; i++) {
+			while (startAmount > 0 && startAmount < winLimit) {
+				double random = Math.random();
+				if (random <= winChance) {
+					startAmount++;
+					result = "WIN";
+					win++;
+				}
+				else {
+					startAmount--;
+					result = "LOSE";
+					lose++;
+				}
+				 
+			
+			}
 		}
-	}
+		}
 }
